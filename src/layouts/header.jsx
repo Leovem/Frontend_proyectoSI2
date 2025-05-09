@@ -2,7 +2,7 @@ import { useTheme } from "@/hooks/use-theme";
 
 import { Bell, ChevronsLeft, Moon, Search, Sun } from "lucide-react";
 
-import profileImg from "@/assets/profile-image.jpg";
+import profileImg from "@/assets/logo.png";
 
 import PropTypes from "prop-types";
 

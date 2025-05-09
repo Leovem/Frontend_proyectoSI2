@@ -31,7 +31,7 @@ export const Sidebar = forwardRef(({ collapsed }, ref) => {
                     alt="Logoipsum"
                     className="hidden dark:block"
                 />
-                {!collapsed && <p className="text-lg font-medium text-slate-900 transition-colors dark:text-slate-50">Logoipsum</p>}
+                {!collapsed && <p className="text-lg font-medium text-slate-900 transition-colors dark:text-slate-50">ActivosFijos</p>}
             </div>
             <div className="flex w-full flex-col gap-y-4 overflow-y-auto overflow-x-hidden p-3 [scrollbar-width:_thin]">
                 {navbarLinks.map((navbarLink) => (
@@ -42,16 +42,20 @@ export const Sidebar = forwardRef(({ collapsed }, ref) => {
                         <p className={cn("sidebar-group-title", collapsed && "md:w-[45px]")}>{navbarLink.title}</p>
                         {navbarLink.links.map((link) => (
                             <NavLink
-                                key={link.label}
-                                to={link.path}
-                                className={cn("sidebar-item", collapsed && "md:w-[45px]")}
-                            >
-                                <link.icon
-                                    size={22}
-                                    className="flex-shrink-0"
-                                />
-                                {!collapsed && <p className="whitespace-nowrap">{link.label}</p>}
-                            </NavLink>
+                            key={link.label}
+                            to={link.path}
+                            end={link.path === "/dashboard"} // Solo para Dashboard
+                            className={({ isActive }) =>
+                                cn(
+                                    "sidebar-item",
+                                    collapsed && "md:w-[45px]",
+                                    isActive && "bg-blue-500 text-white"
+                                )
+                            }
+                        >
+                            <link.icon size={22} className="flex-shrink-0" />
+                            {!collapsed && <p className="whitespace-nowrap">{link.label}</p>}
+                        </NavLink>
                         ))}
                     </nav>
                 ))}

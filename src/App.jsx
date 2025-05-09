@@ -1,14 +1,24 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import Login from "@/pages/auth/Login";
+import RegistrarUsuario from "@/routes/RegisterUser/RegisterUsers";
+import GestionarRoles from "@/routes/ManageRoles/ManageRoles";
+
 import { ThemeProvider } from "@/contexts/theme-context";
 
 import Layout from "@/routes/layout";
 import DashboardPage from "@/routes/dashboard/page";
+import AsignarPrivilegios from "@/routes/ManagePrivilegios/ManagePrivilege";
+import GestionarUsuarios from "@/routes/ManageUsers/ManageUser";
 
 function App() {
-    const router = createBrowserRouter([
+    const router = createBrowserRouter([ 
         {
             path: "/",
+            element: <Login />,  
+        },
+        {
+            path: "/dashboard",
             element: <Layout />,
             children: [
                 {
@@ -17,39 +27,31 @@ function App() {
                 },
                 {
                     path: "analytics",
-                    element: <h1 className="title">Analytics</h1>,
+                    element: <h1 className="title">Analisis</h1>,
                 },
                 {
                     path: "reports",
-                    element: <h1 className="title">Reports</h1>,
+                    element: <h1 className="title">Reportes</h1>,
                 },
                 {
                     path: "customers",
-                    element: <h1 className="title">Customers</h1>,
+                    element: <GestionarUsuarios />,
                 },
                 {
                     path: "new-customer",
-                    element: <h1 className="title">New Customer</h1>,
+                    element: <RegistrarUsuario />,
                 },
                 {
-                    path: "verified-customers",
-                    element: <h1 className="title">Verified Customers</h1>,
+                    path: "roles",
+                    element: <GestionarRoles />,
                 },
                 {
-                    path: "products",
-                    element: <h1 className="title">Products</h1>,
-                },
-                {
-                    path: "new-product",
-                    element: <h1 className="title">New Product</h1>,
-                },
-                {
-                    path: "inventory",
-                    element: <h1 className="title">Inventory</h1>,
+                    path: "privilegios",
+                    element: <AsignarPrivilegios />,
                 },
                 {
                     path: "settings",
-                    element: <h1 className="title">Settings</h1>,
+                    element: <h1 className="title">Ajustes</h1>,
                 },
             ],
         },
