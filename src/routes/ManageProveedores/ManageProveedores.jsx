@@ -4,7 +4,7 @@ import {
   crearProveedor,
   actualizarProveedor,
   eliminarProveedor,
-} from "@/api/ProveedorService";
+} from "@/api/proveedorService";
 import { Pencil, Trash, X } from "lucide-react";
 
 export default function GestionarProveedores() {
