@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {
-  getAllUsuarios,
+  getUsuarios,
   updateUsuario,
   activarUsuario,
   desactivarUsuario,
@@ -17,7 +17,7 @@ export default function GestionarUsuarios() {
 
   const fetchUsuarios = async () => {
     try {
-      const data = await getAllUsuarios();
+      const data = await getUsuarios();
       setUsuarios(data);
     } catch (error) {
       console.error("Error al obtener usuarios:", error);
@@ -90,6 +90,7 @@ export default function GestionarUsuarios() {
                 <th className="p-2">Nombre</th>
                 <th className="p-2">Email</th>
                 <th className="p-2">Rol</th>
+                <th className="p-2">Fecha de ultimo acceso</th>
                 <th className="p-2">Estado</th>
                 <th className="p-2">Acciones</th>
               </tr>
@@ -101,7 +102,8 @@ export default function GestionarUsuarios() {
                   <td className="p-2">{usuario.usuario}</td>
                   <td className="p-2">{usuario.nombreCompleto}</td>
                   <td className="p-2">{usuario.email}</td>
-                  <td className="p-2">{usuario.rol?.nombre || "Sin rol"}</td>
+                  <td className="p-2">{usuario.rolNombre || "Sin rol"}</td>
+                  <td className="p-2">{usuario.fechaUltimoAcceso}</td>
                   <td className="p-2">
                     <span
                       className={`px-2 py-1 rounded-full text-xs font-semibold ${

@@ -1,39 +1,61 @@
 import axios from 'axios';
+import { obtenerToken } from './authService';
 
-const API_URL = 'http://localhost:8080/api/usuarios'; // Ajusta si usas otra IP o puerto
+const api = axios.create({
+  baseURL: 'https://backendproyectosi2-production.up.railway.app/api/usuarios',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Interceptor para incluir el token JWT
+api.interceptors.request.use((config) => {
+  const token = obtenerToken();
+  console.log("Token cargado desde localStorage:", obtenerToken());
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
 
 // Obtener todos los usuarios
-export const getAllUsuarios = async () => {
-  const response = await axios.get(API_URL);
+export const getUsuarios = async () => {
+  const response = await api.get('');
   return response.data;
 };
 
 // Obtener usuarios activos
 export const getUsuariosActivos = async () => {
-  const response = await axios.get(`${API_URL}/activos`);
+  const response = await api.get('/activos');
   return response.data;
 };
 
 // Obtener usuario por ID
 export const getUsuarioById = async (id) => {
-  const response = await axios.get(`${API_URL}/${id}`);
+  const response = await api.get(`/${id}`);
   return response.data;
 };
 
-// Actualizar datos de usuario
-export const updateUsuario = async (id, usuario) => {
-  const response = await axios.put(`${API_URL}/${id}`, usuario);
+// Buscar usuario por nombre de usuario
+export const buscarUsuarioPorNombre = async (usuario) => {
+  const response = await api.get(`/search?usuario=${encodeURIComponent(usuario)}`);
   return response.data;
 };
 
-// Desactivar usuario (soft delete)
+// Actualizar usuario
+export const updateUsuario = async (id, data) => {
+  const response = await api.put(`/${id}`, data);
+  return response.data;
+};
+
+// Desactivar usuario
 export const desactivarUsuario = async (id) => {
-  const response = await axios.patch(`${API_URL}/${id}/desactivar`);
-  return response.data;
+  const response = await api.patch(`/${id}/desactivar`);
+  return response.status === 204;
 };
 
 // Activar usuario
 export const activarUsuario = async (id) => {
-  const response = await axios.patch(`${API_URL}/${id}/activar`);
-  return response.data;
+  const response = await api.patch(`/${id}/activar`);
+  return response.status === 204;
 };

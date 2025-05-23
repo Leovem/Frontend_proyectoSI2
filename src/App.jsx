@@ -3,12 +3,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "@/pages/auth/Login";
 import RegistrarUsuario from "@/routes/RegisterUser/RegisterUsers";
 import GestionarRoles from "@/routes/ManageRoles/ManageRoles";
+import GestionarProveedores from "./routes/ManageProveedores/ManageProveedores";
+import GestionarPresupuestos from "./routes/ManagePresupuestos/ManagePresupuestos";
+import GestionarProyectos from "./routes/ManagePresupuestos/ManageProyectos";
+import GestionarFacturas from "./routes/ManageFacturas/ManageFacturas";
+import GestionarActivos from "./routes/ManageActivos/ManageActivos";
 
 import { ThemeProvider } from "@/contexts/theme-context";
 
 import Layout from "@/routes/layout";
 import DashboardPage from "@/routes/dashboard/page";
-import AsignarPrivilegios from "@/routes/ManagePrivilegios/ManagePrivilege";
 import GestionarUsuarios from "@/routes/ManageUsers/ManageUser";
 
 function App() {
@@ -46,8 +50,24 @@ function App() {
                     element: <GestionarRoles />,
                 },
                 {
-                    path: "privilegios",
-                    element: <AsignarPrivilegios />,
+                    path: "proveedores",
+                    element: <GestionarProveedores />,
+                },
+                {
+                    path: "presupuestos",
+                    element: <GestionarPresupuestos />,
+                },
+                {
+                    path: "proyectos",
+                    element: <GestionarProyectos />,
+                },
+                {
+                    path: "facturas",
+                    element: <GestionarFacturas />,
+                },
+                {
+                    path: "activos",
+                    element: <GestionarActivos />,
                 },
                 {
                     path: "settings",

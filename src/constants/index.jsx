@@ -45,10 +45,51 @@ export const navbarLinks = [
                 icon: Package,
                 path: "roles",
             },
+        ],
+    },
+    {
+        title: "Gestionar proveedores",
+        links: [
             {
-                label: "Privilegios",
-                icon: PackagePlus,
-                path: "privilegios",
+                label: "Proveedores",
+                icon: Package,
+                path: "proveedores",
+            },
+            
+        ],
+    },
+    {
+        title: "Gestionar presupuestos",
+        links: [
+            {
+                label: "Presupuestos",
+                icon: Package,
+                path: "presupuestos",
+            },
+            {
+                label: "Proyectos",
+                icon: Package,
+                path: "proyectos",
+            },
+        ],
+    },
+    {
+        title: "Gestionar Facturas",
+        links: [
+            {
+                label: "Facturas",
+                icon: Package,
+                path: "facturas",
+            },
+        ],
+    },
+    {
+        title: "Gestionar Activos",
+        links: [
+            {
+                label: "Activos",
+                icon: Package,
+                path: "activos",
             },
         ],
     },

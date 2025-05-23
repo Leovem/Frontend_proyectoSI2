@@ -18,30 +18,37 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
-    setLoading(true);
+  e.preventDefault();
+  setError('');
+  setLoading(true);
 
-    if (credentials.usuario.trim().length < 2) {
-      setError('El nombre debe tener al menos 2 caracteres');
-      setLoading(false);
-      return;
+  try {
+    const data = await loginUser(credentials); // data ya contiene token, usuario, rol, etc.
+    const { token, usuario, nombreCompleto, rol, empresaId } = data;
+
+    // Guarda info adicional en localStorage
+    localStorage.setItem("user", JSON.stringify({ token, usuario, nombreCompleto, rol, empresaId }));
+
+    // Usa el contexto si tienes uno
+    login({ token, usuario, nombreCompleto, rol, empresaId });
+
+    // Redirige por rol si deseas
+    if (rol === "SUPERADMINISTRADOR") {
+      navigate("/admin/dashboard");
+    } else if (rol === "USUARIO") {
+      navigate("/usuario/dashboard");
+    } else {
+      navigate("/dashboard");
     }
 
-    try {
-      const response = await loginUser(credentials);
-      if (response.status === 200) {
-        localStorage.setItem('user', JSON.stringify(response.data));
-        navigate('/dashboard');
-      } else {
-        setError(response.data || 'Credenciales incorrectas');
-      }
-    } catch (err) {
-      setError(err.message || 'Error al iniciar sesión');
-    } finally {
-      setLoading(false);
-    }
-  };
+  } catch (err) {
+    setError(err.message || "Error al iniciar sesión");
+  } finally {
+    setLoading(false);
+  }
+};
+
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-sky-100 to-blue-200 px-4 py-8">

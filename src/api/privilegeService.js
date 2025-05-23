@@ -1,26 +1,16 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api/privilegios'; // ajusta si usas otra IP o puerto
+const api = axios.create({
+  baseURL: 'https://backendproyectosi2-production.up.railway.app/api/privilegios',
+});
 
-// Obtener todos los privilegios
-export const getAllPrivilegios = async () => {
-  const response = await axios.get(API_URL);
-  return response.data;
-};
-
-// Obtener privilegio por ID
-export const getPrivilegioById = async (id) => {
-  const response = await axios.get(`${API_URL}/${id}`);
-  return response.data;
-};
-
-// Crear un nuevo privilegio
-export const createPrivilegio = async (privilegio) => {
-  const response = await axios.post(API_URL, privilegio);
-  return response.data;
-};
-
-// Eliminar un privilegio
-export const deletePrivilegio = async (id) => {
-  await axios.delete(`${API_URL}/${id}`);
+// Obtener todos los privilegios públicos
+export const getPrivilegios = async () => {
+  try {
+    const response = await api.get('');
+    return response.data;
+  } catch (error) {
+    console.error('Error al obtener privilegios:', error);
+    throw new Error('No se pudieron cargar los privilegios');
+  }
 };

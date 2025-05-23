@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { registerUser } from "@/api/authService";
-import { getAllRoles } from "@/api/roleService";
+import { getRoles } from "@/api/roleService";
 import { UserPlus } from "lucide-react";
 
 export default function RegistrarUsuario() {
@@ -19,7 +19,7 @@ export default function RegistrarUsuario() {
   useEffect(() => {
     const fetchRoles = async () => {
       try {
-        const data = await getAllRoles();
+        const data = await getRoles();
         setRoles(data);
       } catch (error) {
         console.error("Error al cargar roles:", error);
