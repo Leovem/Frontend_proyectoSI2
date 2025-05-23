@@ -4,7 +4,7 @@ import {
   crearActivo,
   actualizarActivo,
   eliminarActivo,
-} from "@/api/ActivoService";
+} from "@/api/activoService";
 import { listarTipoActivo } from "@/api/tipoActivoService";
 import { listarUbicacionesPorEmpresa } from "@/api/ubicacionService";
 import { listarCuentasContables } from "@/api/cuentaContableService";

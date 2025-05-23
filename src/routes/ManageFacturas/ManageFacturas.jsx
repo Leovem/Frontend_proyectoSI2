@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   listarFacturas,
   crearFactura
-} from "@/api/FacturaService";
+} from "@/api/facturaService";
 import {
   listarMonedas
 } from "@/api/MonedaService";
@@ -24,7 +24,7 @@ import {
 import {
   listarDetallesPorFactura,
   crearDetalleFactura
-} from "@/api/DetalleFacturaService";
+} from "@/api/detalleFacturaService";
 import { X } from "lucide-react";
 
 export default function GestionarFacturas() {

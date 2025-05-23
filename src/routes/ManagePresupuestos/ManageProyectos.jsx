@@ -4,7 +4,7 @@ import {
   crearProyecto,
   actualizarProyecto,
   eliminarProyecto,
-} from "@/api/ProyectoService";
+} from "@/api/proyectoService";
 import { Pencil, Trash, X } from "lucide-react";
 
 export default function GestionarProyectos() {

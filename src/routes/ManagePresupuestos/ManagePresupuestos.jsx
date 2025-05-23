@@ -4,11 +4,11 @@ import {
   crearPresupuesto,
   actualizarPresupuesto,
   eliminarPresupuesto,
-} from "@/api/PresupuestoService";
+} from "@/api/presupuestoService";
 
 import { listarMonedas } from "@/api/MonedaService";
-import { listarDepartamentos } from "@/api/DepartamentoService";
-import { listarProyectos } from "@/api/ProyectoService";
+import { listarDepartamentos } from "@/api/departamentoService";
+import { listarProyectos } from "@/api/proyectoService";
 
 import { Pencil, Trash, X } from "lucide-react";
 
