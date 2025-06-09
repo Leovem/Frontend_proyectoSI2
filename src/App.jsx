@@ -95,19 +95,19 @@ function App() {
             element: <AdquirirPlanForm />,
         },
         {
-            path: "planes",
+            path: "/planes",
             element: <PlanesPage />,
         },
         {
-            path: "pagar",
+            path: "/pagar",
             element: <PagoPlan />,
         },
         {
-            path: "pago-exitoso",
+            path: "/pago-exitoso",
             element: <PagoExitoso />,
         },
         {
-            path: "pago-cancelado",
+            path: "/pago-cancelado",
             element: <PagoCancelado />,
         }
     ]);
