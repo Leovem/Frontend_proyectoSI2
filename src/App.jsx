@@ -8,6 +8,13 @@ import GestionarPresupuestos from "./routes/ManagePresupuestos/ManagePresupuesto
 import GestionarProyectos from "./routes/ManagePresupuestos/ManageProyectos";
 import GestionarFacturas from "./routes/ManageFacturas/ManageFacturas";
 import GestionarActivos from "./routes/ManageActivos/ManageActivos";
+import GestionarAuditoria from "./routes/Auditoria/Auditoria";
+import AdquirirPlanForm from "@/pages/FormPlan/AdquirirPlanForm";
+import PlanesPage from "@/pages/FormPlan/PlanesPage";
+import Home from "@/pages/Home/Home";
+import PagoPlan from "@/pages/FormPlan/PagoPlan";
+import PagoExitoso from './pages/Pagos/PagoExitoso';
+import PagoCancelado from './pages/Pagos/PagoCancelado';
 
 import { ThemeProvider } from "@/contexts/theme-context";
 
@@ -19,6 +26,10 @@ function App() {
     const router = createBrowserRouter([ 
         {
             path: "/",
+            element: <Home />,
+        },
+        {
+            path: "/login",
             element: <Login />,  
         },
         {
@@ -70,11 +81,35 @@ function App() {
                     element: <GestionarActivos />,
                 },
                 {
+                    path: "auditoria",
+                    element: <GestionarAuditoria />,
+                },
+                {
                     path: "settings",
                     element: <h1 className="title">Ajustes</h1>,
                 },
             ],
         },
+        {
+            path: "/adquirir-plan",
+            element: <AdquirirPlanForm />,
+        },
+        {
+            path: "planes",
+            element: <PlanesPage />,
+        },
+        {
+            path: "pagar",
+            element: <PagoPlan />,
+        },
+        {
+            path: "pago-exitoso",
+            element: <PagoExitoso />,
+        },
+        {
+            path: "pago-cancelado",
+            element: <PagoCancelado />,
+        }
     ]);
 
     return (

@@ -23,10 +23,13 @@ const Login = () => {
   setLoading(true);
 
   try {
-    const data = await loginUser(credentials); // data ya contiene token, usuario, rol, etc.
+    console.log("📤 Enviando credenciales:", credentials);
+    
+
+    const data = await loginUser(credentials); 
+    console.log("✅ Respuesta del backend:", data);
     const { token, usuario, nombreCompleto, rol, empresaId } = data;
 
-    // Guarda info adicional en localStorage
     localStorage.setItem("user", JSON.stringify({ token, usuario, nombreCompleto, rol, empresaId }));
 
     // Usa el contexto si tienes uno
@@ -47,6 +50,8 @@ const Login = () => {
     setLoading(false);
   }
 };
+
+
 
 
 

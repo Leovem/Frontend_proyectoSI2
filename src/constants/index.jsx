@@ -94,6 +94,16 @@ export const navbarLinks = [
         ],
     },
     {
+        title: "Gestionar Auditoria",
+        links: [
+            {
+                label: "Bitacora",
+                icon: Package,
+                path: "auditoria",
+            },
+        ],
+    },
+    {
         title: "Ajustes",
         links: [
             {
