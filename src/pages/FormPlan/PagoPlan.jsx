@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PlanService from '../../api/PlanService';
+import { loadStripe } from '@stripe/stripe-js';
 //import AdquirirPlanService from '../../api/AdquirirPlanService';
 import PagoService from '../../api/PagoService';
 
@@ -63,7 +64,14 @@ const PagoPlan = () => {
 
     const response = await PagoService.crearSesionStripe(payload);
 
-    const stripe = await window.Stripe('pk_test_51RXY7uInrTAidYuTsntGcURCjjGaRfVjGMscXtna6BpX08WaQrs7a3SY4B7zlVFSLcObLSu3lsUX8q0NYKwX3r0T00DgPYwhzX'); // tu clave pública de Stripe
+    const sessionId = response.id;
+    if (!sessionId || typeof sessionId !== 'string' || !sessionId.startsWith('cs_')) {
+      console.error("❌ sessionId inválido o no recibido:", sessionId);
+      alert('No se pudo iniciar el proceso de pago. Intenta nuevamente.');
+      return;
+    }
+
+    const stripe = await loadStripe('pk_test_51RXY7uInrTAidYuTsntGcURCjjGaRfVjGMscXtna6BpX08WaQrs7a3SY4B7zlVFSLcObLSu3lsUX8q0NYKwX3r0T00DgPYwhzX'); // tu clave pública de Stripe
     stripe.redirectToCheckout({ sessionId: response.id });
   } catch (e) {
     console.error("Error completo:", e);
