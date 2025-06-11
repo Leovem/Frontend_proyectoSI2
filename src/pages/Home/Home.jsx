@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 const HomePanel = () => {
   const usuarios = [
-    { nombre: 'Claudia Evelin Tapia', rol: 'Product Owner', foto: '../../public/perfil/claudia.png' },
-    { nombre: 'Elias Puma Claure', rol: 'Scrum Master', foto: '../../public/perfil/elias.png' },
-    { nombre: 'Misael Vedia Mostacedo', rol: 'Developer', foto: '../../public/perfil/misael.png' },
-    { nombre: 'Jose Diego Garcia Caballero', rol: 'Developer', foto: '../../public/perfil/diego.png' },
-  ];
+  { nombre: 'Claudia Evelin Tapia', rol: 'Product Owner', foto: '/perfil/claudia.png' },
+  { nombre: 'Elias Puma Claure', rol: 'Scrum Master', foto: '/perfil/elias.png' },
+  { nombre: 'Misael Vedia Mostacedo', rol: 'Developer', foto: '/perfil/misael.png' },
+  { nombre: 'Jose Diego Garcia Caballero', rol: 'Developer', foto: '/perfil/diego.png' },
+];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
