@@ -17,12 +17,14 @@
     "axios": "^1.9.0",
     "clsx": "^2.1.1",
     "dashboard-ui-design": "file:",
+    "file-saver": "^2.0.5",
     "lucide-react": "^0.441.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
     "recharts": "^2.12.7",
-    "tailwind-merge": "^2.5.2"
+    "tailwind-merge": "^2.5.2",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
