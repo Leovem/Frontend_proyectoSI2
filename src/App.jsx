@@ -8,6 +8,8 @@ import GestionarPresupuestos from "./routes/ManagePresupuestos/ManagePresupuesto
 import GestionarProyectos from "./routes/ManagePresupuestos/ManageProyectos";
 import GestionarFacturas from "./routes/ManageFacturas/ManageFacturas";
 import GestionarActivos from "./routes/ManageActivos/ManageActivos";
+import DepreciacionActivos from './routes/ManageActivos/DepreciacionActivos';
+import RevaluacionActivos from './routes/ManageActivos/RevaluacionActivos';
 import GestionarAuditoria from "./routes/Auditoria/Auditoria";
 import AdquirirPlanForm from "@/pages/FormPlan/AdquirirPlanForm";
 import PlanesPage from "@/pages/FormPlan/PlanesPage";
@@ -21,6 +23,7 @@ import { ThemeProvider } from "@/contexts/theme-context";
 import Layout from "@/routes/layout";
 import DashboardPage from "@/routes/dashboard/page";
 import GestionarUsuarios from "@/routes/ManageUsers/ManageUser";
+import Reportes from "@/routes/Reportes/Reportes";
 
 function App() {
     const router = createBrowserRouter([ 
@@ -46,7 +49,7 @@ function App() {
                 },
                 {
                     path: "reports",
-                    element: <h1 className="title">Reportes</h1>,
+                    element: <Reportes />,
                 },
                 {
                     path: "customers",
@@ -79,6 +82,14 @@ function App() {
                 {
                     path: "activos",
                     element: <GestionarActivos />,
+                },
+                {
+                    path: "depreciacion",
+                    element: <DepreciacionActivos />,
+                },
+                {
+                    path: "revaluacion",
+                    element: <RevaluacionActivos />,
                 },
                 {
                     path: "auditoria",

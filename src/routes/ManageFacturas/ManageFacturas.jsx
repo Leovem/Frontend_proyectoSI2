@@ -83,7 +83,7 @@ export default function GestionarFacturas() {
       ordenCompraId: "",
       presupuestoId: "",
       cuentaContableId: "",
-      moneda: "",
+      monedaCodigo: "",
       tipoPago: "Contado",
       total: 0,
       observaciones: ""
@@ -101,6 +101,7 @@ export default function GestionarFacturas() {
 
   const handleGuardar = async () => {
     try {
+      console.log("📦 Enviando datos al backend:", form);
       await crearFactura(form);
       setMensaje("Factura creada correctamente.");
       setIsDrawerOpen(false);
@@ -274,7 +275,7 @@ export default function GestionarFacturas() {
             <input type="date" name="fecha" value={form.fecha} onChange={handleChange} className="w-full border rounded px-3 py-2" />
             <input type="number" name="total" value={form.total} onChange={handleChange} placeholder="Total" className="w-full border rounded px-3 py-2" />
 
-            <select name="moneda" value={form.moneda} onChange={handleChange} className="w-full border rounded px-3 py-2">
+            <select name="monedaCodigo" value={form.monedaCodigo} onChange={handleChange} className="w-full border rounded px-3 py-2">
               <option value="">Seleccione moneda</option>
               {monedas.map((m) => (
                 <option key={m.codigo} value={m.codigo}>

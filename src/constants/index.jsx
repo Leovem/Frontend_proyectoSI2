@@ -91,6 +91,16 @@ export const navbarLinks = [
                 icon: Package,
                 path: "activos",
             },
+            {
+                label: "Depreciacion",
+                icon: Package,
+                path: "depreciacion",
+            },
+            {
+                label: "Revaluacion",
+                icon: Package,
+                path: "revaluacion",
+            },
         ],
     },
     {
