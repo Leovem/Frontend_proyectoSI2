@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getRevaluaciones, createRevaluacion } from '@/api/RevaluacionService';
-import { listarActivos } from '@/api/ActivoService';
+import { listarActivos } from '@/api/activoService';
 
 export default function RevaluacionActivos() {
   const [revaluaciones, setRevaluaciones] = useState([]);

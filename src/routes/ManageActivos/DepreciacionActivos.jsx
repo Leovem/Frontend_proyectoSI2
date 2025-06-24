@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getDepreciaciones, createDepreciacion } from '@/api/DepreciacionService';
-import { listarActivos } from '@/api/ActivoService';
-import { listarMetodosDepreciacion } from '@/api/MetodoDepreciacionService';
+import { listarActivos } from '@/api/activoService';
+import { listarMetodosDepreciacion } from '@/api/metodoDepreciacionService';
 import { listarMonedas } from '@/api/MonedaService';
 
 export default function DepreciacionActivos() {
